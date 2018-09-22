@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Bloop Bloop Blot",
+    "description": "Fish Talk", 
+    "version": "1",
+    "author": "Bloops",
+
+    "content_scripts": [{
+        "css": ["main.css"],
+        "js": ["content.js"], 
+        "matches": ["*://*/*"]
+    }], 
+
+    "browser_action": {
+        "default_popup": "popup.html", 
+        "default_icon": "/assets/fish.png"
+    },
+
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+
+    "permissions": ["activeTab"]
+
+} 
