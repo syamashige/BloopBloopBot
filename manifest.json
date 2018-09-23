@@ -10,7 +10,7 @@
     },
 
     "content_scripts": [{
-        "css": ["main.css"],
+        "css": ["chatCSS.css"],
         "js": ["content.js"], 
         "matches": ["*://*/*"]
     }], 
@@ -20,9 +20,6 @@
         "default_icon": "/assets/fish.png"
     },
 
-    "chrome_url_overrides": {
-        "newtab": "newtab.html"
-    },
 
     "permissions": ["contextMenus"]
 

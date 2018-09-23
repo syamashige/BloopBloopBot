@@ -53,24 +53,22 @@ const randomLetterAmount = () => {
 
 
 function getSelected() {
-    var selectedTextArea = DocumentOrShadowRoot.activeElement;
-    var txt = selectedTextArea.value.substring(
-        selectedTextArea.selectionStart, selectedTextArea.selectionEnd);
-    // if (window.getSelection) {
-    //   alertwindow.getSelection();
-    // }
-    // else if(document.getSelection) {
-    //   txt = document.getSelection();
-    // }
-    // else if(document.selection) {
-    //   txt = document.selection.createRange().text;
-    // }
-    // txt = txt.toString();
-    // return txt;  
-    console.log('text', text)
+    // var selectedTextArea = DocumentOrShadowRoot.activeElement;
+    // var txt = selectedTextArea.value.substring(
+    //     selectedTextArea.selectionStart, selectedTextArea.selectionEnd);
+    if (window.getSelection) {
+      alertwindow.getSelection();
+    }
+    else if(document.getSelection) {
+      txt = document.getSelection();
+    }
+    else if(document.selection) {
+      txt = document.selection.createRange().text;
+    }
+    txt = txt.toString();
+    return txt;  
+    // console.log('text', text)
 }
-  
-document.getElementsByTagName('p').addEventListener("onclick", getSelected)
 
 
 chrome.contextMenus.create({
