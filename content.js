@@ -53,7 +53,6 @@ inputId.addEventListener('keydown', function myFunction(event) {
             })
             .then(reply => {              
                 var botReply = new TextDecoder().decode(reply.value)
-                console.log(string, "FUCKING CMON");
                 var newReply = document.createElement('div');
                 newReply.className = "botReply";
                 divId.append(newReply);
