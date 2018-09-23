@@ -2,7 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 8989;
-const fishbot = require('./controllers/fish');
+const fishbot = require('./controller/fish-response');
+
+require('dotenv').config();
+
+fishbot.init(app);
 
 app.use(bodyParser.urlencoded({
   extended: false

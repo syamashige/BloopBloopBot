@@ -11,15 +11,15 @@ function init(app) {
 
   });
 
-  app.post(`/api/fish-response`, connector.listen());
+  app.post('/api/fish-response', connector.listen());
   const bot = new builder.UniversalBot(connector, (session) => {
 
-    session.send(`Sorry, I did not understand`)
+    session.send('Sorry, I did not understand')
   })
 
   // Print out help message
 
-  bot.dialog(`Help`, (session) => {
+  bot.dialog('Help', (session) => {
     session.endDialog(`Hi! this is a helpl message`);
   }).triggerAction({
     matches: `Help`,

@@ -5,17 +5,28 @@ let bleeps = [
   "dippity dopity"
 ]
 
-let randomResponse = Math.floor(Math.random() * (bleeps.length));
+let randomResponse = () => {
+  return bleeps[Math.floor(Math.random() * (bleeps.length))];
+};
 
 
-let botRespond = (key) => {
-  console.log('press')
-
-  // let dakine = key.which || key.keyCode;
-  // if (dakine == 13) {
-  document.createElement('div').innerHTML = bleeps[randomResponse];
-  // }
-}
 
 let onEnter = document.getElementById('inputId');
-onEnter.addEventListener("keypress", botRespond);
+onEnter.addEventListener("keypress", function (event) {
+  // setTimeout(myFunction = (event) => {
+  if (event.key === "Enter") {
+
+    //Creates a new div to have the input value
+    var newDiv = document.createElement('div');
+
+    newDiv.innerHTML = randomResponse();
+
+    //Appends the newDiv with input values to a fixed div
+    document.body.appendChild(newDiv);
+
+
+  }
+
+
+  // });
+});
