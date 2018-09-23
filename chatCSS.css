@@ -33,6 +33,26 @@ padding: 20px;
 /* font-family: 'Chelsea Market', cursive; */
 }
 
+
+.botReply, .textMessage{
+  /* border: 1px dotted red; */
+  height: auto;
+}
+
+.reply, .textMessage {
+
+  /* text-align: right; */
+  /* border: 1px solid white; */
+  background-color: white;
+  width: 50%;
+  /* margin-left: 50%; */
+}
+
+.reply {
+  margin-left: 50%;
+  text-align: right;
+}
+
 input[type=text] {
   /* width: 90%;
   margin-left: 5%; */

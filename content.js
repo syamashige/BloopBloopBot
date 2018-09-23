@@ -16,8 +16,21 @@ inputId.addEventListener('keydown', function myFunction(event) {
       
       //Creates a new div to have the input value
         var newDiv = document.createElement('div');
+        newDiv.className = "textMessage";
+
+        let text = input.value;
+
+        const urlTextFunc = (text) => {
+            if (text.split(" ").length === 1) {
+                return text;
+            } else {
+                textArr = text.split(" ");
+                urlCode = textArr.join("%20");
+                return urlCode;
+            }
+        }
         
-      newDiv.innerHTML = textToFish(input.value);
+      newDiv.innerHTML = textToFish(text);
 
       //Appends the newDiv with input values to a fixed div
       divId.appendChild(newDiv);
@@ -27,6 +40,32 @@ inputId.addEventListener('keydown', function myFunction(event) {
       boxDiv.scrollTop = boxDiv.scrollHeight;
 
       //Blanks out the input value after you enter
-      inputId.value = "";
+        inputId.value = "";
+      
+        fetch(`http://34.210.215.17:9878/get?msg=${urlTextFunc(text)}.json`)
+            .then(response => {
+                return response.body;
+            })
+            .then(word => {
+                return word.getReader().read();
+            })
+            .then(reply => {              
+                var botReply = new TextDecoder().decode(reply.value)
+                // console.log(string, "FUCKING CMON");
+                var newReply = document.createElement('div');
+                newReply.className = "botReply";
+                divId.append(newReply);
+
+                var reply = document.createElement('p');
+                reply.className = "reply"
+                reply.innerHTML = `(untranslated): ${textToFish(botReply)}\n(translated): ${botReply}`;
+        
+                newReply.appendChild(reply);
+            
+
+            })
+            .catch(err => {
+                console.log("IM ERRORING OUT", err);
+        })
     }
 });
