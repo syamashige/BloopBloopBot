@@ -53,7 +53,7 @@ const randomLetterAmount = () => {
 
 
 function getSelected() {
-    var selectedTextArea = document.activeElement;
+    var selectedTextArea = DocumentOrShadowRoot.activeElement;
     var txt = selectedTextArea.value.substring(
         selectedTextArea.selectionStart, selectedTextArea.selectionEnd);
     // if (window.getSelection) {
@@ -66,8 +66,12 @@ function getSelected() {
     //   txt = document.selection.createRange().text;
     // }
     // txt = txt.toString();
-    return txt;  
-  }
+    // return txt;  
+    console.log('text', text)
+}
+  
+document.getElementsByTagName('p').addEventListener("onclick", getSelected)
+
 
 chrome.contextMenus.create({
     title: "Bloop Translator",
