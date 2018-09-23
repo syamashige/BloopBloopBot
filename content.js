@@ -9,6 +9,8 @@ function changeImg() {
     this.src="/assets/fish.png"
 }
 
+let inputId = document.getElementById("inputId");
+
 inputId.addEventListener('keydown', function myFunction(event) {
     if (event.key === "Enter") {
       //Grabs input element

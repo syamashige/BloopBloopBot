@@ -4,6 +4,10 @@
     "description": "Fish Talk", 
     "version": "1",
     "author": "Bloops",
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    },
 
     "content_scripts": [{
         "css": ["main.css"],
@@ -20,6 +24,6 @@
         "newtab": "newtab.html"
     },
 
-    "permissions": ["activeTab"]
+    "permissions": ["contextMenus"]
 
 } 
