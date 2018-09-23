@@ -42,7 +42,7 @@ inputId.addEventListener('keydown', function myFunction(event) {
       //Blanks out the input value after you enter
         inputId.value = "";
       
-        fetch(`http://34.210.215.17:9878/get?msg=${urlTextFunc(text)}.json`)
+        fetch(`http://34.210.215.17:9878/get?msg=${urlTextFunc(text)}`)
             .then(response => {
                 return response.body;
             })
@@ -58,10 +58,13 @@ inputId.addEventListener('keydown', function myFunction(event) {
 
                 var reply = document.createElement('p');
                 reply.className = "reply"
-                reply.innerHTML = `(untranslated): ${textToFish(botReply)}\n(translated): ${botReply}`;
+                reply.innerHTML = `(untranslated): ${textToFish(botReply)} <br>\n(translated): ${botReply}`;
         
                 newReply.appendChild(reply);
-            
+                
+                //Sets the div to the bottom after every input
+                var boxDiv = document.getElementById("divId")
+                boxDiv.scrollTop = boxDiv.scrollHeight;
 
             })
             .catch(err => {
